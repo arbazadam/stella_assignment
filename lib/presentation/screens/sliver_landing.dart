@@ -7,13 +7,13 @@ import 'package:stella_assignment/presentation/widgets/rounded_container_widget.
 class AdvancedSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final height = getSize(context).height * .7;
+    final height = getSize(context).height;
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
-            delegate: CustomSliverAppBarDelegate(height),
+            delegate: CustomSliverAppBarDelegate(height * .7),
             pinned: true,
           ),
           buildImages(),
@@ -58,7 +58,15 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             top: height * .07,
             left: height * .008),
         Positioned(
-          bottom: height * .08,
+          bottom: height * .2,
+          left: height * .02,
+          child: disappearingWidget(
+              shrinkOffset,
+              Text('Your stay at',
+                  style: TextStyle(color: Colors.white, fontSize: 25))),
+        ),
+        Positioned(
+          bottom: height * .13,
           left: height * .02,
           child: disappearingWidget(
               shrinkOffset,
@@ -66,7 +74,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                   style: TextStyle(color: Colors.white, fontSize: 25))),
         ),
         Positioned(
-          bottom: height * .05,
+          bottom: height * .1,
           left: height * .02,
           child: disappearingWidget(
               shrinkOffset,

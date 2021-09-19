@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
+import 'package:stella_assignment/presentation/screens/reservation_screen.dart';
 
 import 'checkin_checkout_container_widget.dart';
 import 'listview_widget.dart';
+import 'payment_info.dart';
 
 class RoundedContainer extends StatelessWidget {
   @override
@@ -14,36 +16,37 @@ class RoundedContainer extends StatelessWidget {
     final screenHeight = getSize(context).height;
     final borderRadius = screenWidth * .05;
     return Container(
-        padding: EdgeInsets.fromLTRB(borderRadius, 10, borderRadius, 0),
-        //width: screenWidth,
-        decoration: BoxDecoration(
-            color: Colors.orange,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(borderRadius),
-              topRight: Radius.circular(borderRadius),
-            )),
+        color: scaffoldBackgroundColor,
+        height: screenHeight,
         child: ListView(
-          //crossAxisAlignment: CrossAxisAlignment.start,
+          padding: EdgeInsets.zero,
           children: [
-            Center(
-                child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * .007),
-              child: getSmallContainer(context),
-            )),
-            SizedBox(height: screenHeight * .05),
-            CheckinCheckoutContainer(),
-            SizedBox(height: screenHeight * .05),
-            Padding(
-              padding: EdgeInsets.only(left: screenHeight * .02),
-              child: Text('Overiew',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+            Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.white,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CheckinCheckoutContainer(),
+                    SizedBox(height: screenHeight * .05),
+                    Padding(
+                      padding: EdgeInsets.only(left: screenHeight * .02),
+                      child: Text('Overiew',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 18)),
+                    ),
+                    SizedBox(
+                      height: screenHeight * .05,
+                    ),
+                    ListViewWidget(
+                      listData: overviewTitle,
+                    ),
+                  ]),
             ),
             SizedBox(
-              height: screenHeight * .05,
+              height: screenHeight * .03,
             ),
-            ListViewWidget(
-              listData: overviewTitle,
-            ),
+            Container(color: Colors.white, child: PaymentInfo())
           ],
         ));
   }

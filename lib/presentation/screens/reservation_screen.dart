@@ -15,40 +15,37 @@ class ReservationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = getSize(context).height;
     final width = getSize(context).width;
-    return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          getHeaderSection(height),
-          SizedBox(
-            height: height * .04,
-          ),
-          Divider(
-            color: dividerColor,
-            thickness: 2,
-            indent: width * .04,
-            endIndent: width * .04,
-          ),
-          Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) => getTile(
-                  reservationRules.keys.elementAt(index),
-                  reservationRules.values.elementAt(index),
-                  height * .07,
-                  context),
-              separatorBuilder: (context, index) => Divider(
-                color: dividerColor,
-                thickness: 2,
-                indent: width * .04,
-                endIndent: width * .04,
-              ),
-              itemCount: reservationRules.length,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        getHeaderSection(height),
+        SizedBox(
+          height: height * .04,
+        ),
+        Divider(
+          color: dividerColor,
+          thickness: 2,
+          indent: width * .04,
+          endIndent: width * .04,
+        ),
+        Expanded(
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: (context, index) => getTile(
+                reservationRules.keys.elementAt(index),
+                reservationRules.values.elementAt(index),
+                height * .07,
+                context),
+            separatorBuilder: (context, index) => Divider(
+              color: dividerColor,
+              thickness: 2,
+              indent: width * .04,
+              endIndent: width * .04,
             ),
+            itemCount: reservationRules.length,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
