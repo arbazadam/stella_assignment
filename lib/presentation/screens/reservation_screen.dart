@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
-import 'package:stella_assignment/presentation/screens/parent_landing_screen.dart';
 import 'package:stella_assignment/presentation/widgets/button_widget.dart';
 import 'package:stella_assignment/presentation/widgets/message_placeholder_input_widget.dart';
 
@@ -17,6 +16,7 @@ class ReservationScreen extends StatelessWidget {
     final width = getSize(context).width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         getHeaderSection(height),
         SizedBox(
@@ -24,11 +24,11 @@ class ReservationScreen extends StatelessWidget {
         ),
         Divider(
           color: dividerColor,
-          thickness: 2,
+          thickness: .5,
           indent: width * .04,
           endIndent: width * .04,
         ),
-        Expanded(
+        Container(
           child: ListView.separated(
             shrinkWrap: true,
             itemBuilder: (context, index) => getTile(
@@ -38,7 +38,7 @@ class ReservationScreen extends StatelessWidget {
                 context),
             separatorBuilder: (context, index) => Divider(
               color: dividerColor,
-              thickness: 2,
+              thickness: .5,
               indent: width * .04,
               endIndent: width * .04,
             ),

@@ -12,7 +12,7 @@ class ParentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Gilroy'),
-      home: CustomSliverAppBar(),
+      home: CustomSliverScreen(),
     );
   }
 }

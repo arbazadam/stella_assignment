@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/constants.dart';
 import 'package:stella_assignment/presentation/widgets/parent_container_widget.dart';
 
-class CustomSliverAppBar extends StatelessWidget {
+class CustomSliverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = getSize(context).height;

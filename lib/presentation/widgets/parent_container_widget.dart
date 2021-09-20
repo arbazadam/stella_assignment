@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:stella_assignment/data/constants.dart';
+import 'package:stella_assignment/presentation/screens/reservation_screen.dart';
 
 import 'checkin_checkout_container_widget.dart';
 import 'getting_there_widget.dart';
@@ -50,6 +51,15 @@ class ParentWidget extends StatelessWidget {
                     bottom: screenHeight * .03,
                   ),
                   child: GetThereWidget(),
+                )),
+            getSizedBox(screenHeight),
+            Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * .03,
+                      vertical: screenHeight * .03),
+                  child: ReservationScreen(),
                 )),
             getSizedBox(screenHeight),
             Container(
