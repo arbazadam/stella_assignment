@@ -6,7 +6,7 @@ class OverViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-        physics: const BouncingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         itemBuilder: (context, index) => ListTile(

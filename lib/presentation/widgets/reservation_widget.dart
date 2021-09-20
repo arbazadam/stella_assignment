@@ -7,8 +7,8 @@ import 'package:stella_assignment/data/constants.dart';
 import 'package:stella_assignment/presentation/widgets/button_widget.dart';
 import 'package:stella_assignment/presentation/widgets/message_placeholder_input_widget.dart';
 
-class ReservationScreen extends StatelessWidget {
-  const ReservationScreen({Key? key}) : super(key: key);
+class ReservationWidget extends StatelessWidget {
+  const ReservationWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +30,7 @@ class ReservationScreen extends StatelessWidget {
         ),
         Container(
           child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) => getTile(
                 reservationRules.keys.elementAt(index),
