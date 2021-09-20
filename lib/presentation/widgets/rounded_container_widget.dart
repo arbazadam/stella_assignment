@@ -6,6 +6,7 @@ import 'package:stella_assignment/data/constants.dart';
 import 'package:stella_assignment/presentation/screens/reservation_screen.dart';
 
 import 'checkin_checkout_container_widget.dart';
+import 'getting_there.dart';
 import 'listview_widget.dart';
 import 'payment_info.dart';
 
@@ -40,13 +41,17 @@ class RoundedContainer extends StatelessWidget {
                     ),
                     ListViewWidget(
                       listData: overviewTitle,
-                    ),
+                    )
                   ]),
             ),
             SizedBox(
-              height: screenHeight * .03,
+              height: screenHeight * .02,
             ),
-            Container(color: Colors.white, child: PaymentInfo())
+            Container(color: Colors.white, child: GetThereWidget()),
+            SizedBox(
+              height: screenHeight * .02,
+            ),
+            Container(color: Colors.white, child: PaymentInfo()),
           ],
         ));
   }

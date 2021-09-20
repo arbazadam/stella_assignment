@@ -16,35 +16,25 @@ class AdvancedSliverAppBar extends StatelessWidget {
             delegate: CustomSliverAppBarDelegate(height * .7),
             pinned: true,
           ),
-          buildImages(),
+          SliverToBoxAdapter(child: RoundedContainer())
         ],
       ),
     );
   }
-
-  Widget buildImages() => SliverGrid(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        delegate: SliverChildBuilderDelegate(
-          (context, index) => ImageWidget(index),
-          childCount: 20,
-        ),
-      );
 }
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
-
-  const CustomSliverAppBarDelegate(
+  var height;
+  CustomSliverAppBarDelegate(
     this.expandedHeight,
   );
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final height = getSize(context).height;
-    final size = 60;
+    height = getSize(context).height;
+    final size = height * .06;
     final top = expandedHeight - shrinkOffset - size / 2;
 
     return Stack(
@@ -58,7 +48,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             top: height * .07,
             left: height * .008),
         Positioned(
-          bottom: height * .2,
+          bottom: height * .13,
           left: height * .02,
           child: disappearingWidget(
               shrinkOffset,
@@ -66,7 +56,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                   style: TextStyle(color: Colors.white, fontSize: 25))),
         ),
         Positioned(
-          bottom: height * .13,
+          bottom: height * .05,
           left: height * .02,
           child: disappearingWidget(
               shrinkOffset,
@@ -74,7 +64,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                   style: TextStyle(color: Colors.white, fontSize: 25))),
         ),
         Positioned(
-          bottom: height * .1,
+          bottom: height * .03,
           left: height * .02,
           child: disappearingWidget(
               shrinkOffset,
@@ -101,12 +91,26 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                 ],
               )),
         ),
-        // Positioned(
-        //   top: top,
-        //   left: 20,
-        //   right: 20,
-        //   child: buildFloating(shrinkOffset),
-        // ),
+        Positioned(
+          child: Container(
+            height: height * .03,
+            child: disappearingWidget(
+              shrinkOffset,
+              Center(
+                child: getSmallContainer(context),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(50),
+              ),
+            ),
+          ),
+          bottom: -2,
+          left: 0,
+          right: 0,
+        ),
       ],
     );
   }
@@ -151,62 +155,14 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
         ),
       );
 
-  Widget buildFloating(double shrinkOffset) => Opacity(
-        opacity: disappear(shrinkOffset),
-        child: Card(
-          child: Row(
-            children: [
-              Expanded(child: buildButton(text: 'Share', icon: Icons.share)),
-              Expanded(child: buildButton(text: 'Like', icon: Icons.thumb_up)),
-            ],
-          ),
-        ),
-      );
-
-  Widget buildButton({
-    @required text,
-    @required icon,
-  }) =>
-      TextButton(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon),
-            const SizedBox(width: 12),
-            Text(text, style: TextStyle(fontSize: 20)),
-          ],
-        ),
-        onPressed: () {},
-      );
-
   @override
   double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => kToolbarHeight + 40;
+  double get minExtent => kToolbarHeight + height * .07;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
-}
-
-class ImageWidget extends StatelessWidget {
-  final int index;
-
-  const ImageWidget(
-    this.index,
-  );
-
-  @override
-  Widget build(BuildContext context) => Container(
-        height: 150,
-        width: double.infinity,
-        child: Card(
-          child: Image.network(
-            'https://source.unsplash.com/random?sig=$index',
-            fit: BoxFit.cover,
-          ),
-        ),
-      );
 }
 
 Widget getRoundedCircularContainer() {

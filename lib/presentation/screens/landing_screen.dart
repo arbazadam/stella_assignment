@@ -33,34 +33,23 @@ class LandingScreen extends StatelessWidget {
                   size: 50,
                 ),
               ),
-              Positioned(child: getC(), bottom: 0, left: height * .008)
+              Positioned(
+                  child: getPropertyDetails(), bottom: 0, left: height * .008)
             ]),
           ),
-          // RoundedContainer(Text('Hello')),
         ],
       ),
     );
   }
 }
 
-Widget getC() {
+Widget getPropertyDetails() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text('Your stay at', style: getTextStyle()),
       Text('Beautiful & Trendy 2', style: getTextStyle()),
       Text('Floor Penthouse | Old MTL', style: getTextStyle()),
-      // Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //   children: [
-      //     Text('4 bedrooms', style: getTextStyle()),
-      //     Text(
-      //       '5 bathrooms',
-      //       style: getTextStyle(),
-      //     ),
-      //     Text('10 Guests', style: getTextStyle())
-      //   ],
-      // )
     ],
   );
 }
