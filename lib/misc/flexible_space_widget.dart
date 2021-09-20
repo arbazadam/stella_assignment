@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/constants.dart';
 
-import 'rounded_container_widget.dart';
-
 class FlexibleSpace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

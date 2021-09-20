@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
-import 'package:stella_assignment/presentation/screens/sliver_landing.dart';
+import 'package:stella_assignment/presentation/screens/parent_landing_screen.dart';
 import 'package:stella_assignment/presentation/widgets/button_widget.dart';
-import 'package:stella_assignment/presentation/widgets/textfield_widget.dart';
+import 'package:stella_assignment/presentation/widgets/message_placeholder_input_widget.dart';
 
 class ReservationScreen extends StatelessWidget {
   const ReservationScreen({Key? key}) : super(key: key);
@@ -129,7 +129,7 @@ Widget getBottomSheetContent(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: getSmallContainer(context)),
+          // Center(child: getSmallContainer(context)),
           SizedBox(
             height: height * .02,
           ),
@@ -148,7 +148,7 @@ Widget getBottomSheetContent(BuildContext context) {
           SizedBox(
             height: height * .02,
           ),
-          TextFieldWidget(),
+          MessagePlaceHolderInput(),
           SizedBox(
             height: height * .03,
           ),

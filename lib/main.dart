@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/screens/sliver_landing.dart';
+import 'presentation/screens/parent_landing_screen.dart';
 
 void main() => runApp(ParentApp());
 
@@ -12,7 +12,7 @@ class ParentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Gilroy'),
-      home: AdvancedSliverAppBar(),
+      home: CustomSliverAppBar(),
     );
   }
 }

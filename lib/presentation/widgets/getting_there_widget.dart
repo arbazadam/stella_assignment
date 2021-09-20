@@ -79,15 +79,22 @@ class GetThereWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: height * .005,
+          height: height * .01,
         ),
         ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text('Address'),
-          subtitle: Text(
-            '244 Rue Saint-Jacques, Montreal, QC, Canada',
+          title: Text('Address', style: TextStyle(fontWeight: FontWeight.w600)),
+          subtitle: Padding(
+            padding: EdgeInsets.only(top: height * .005),
+            child: Text(
+              '244 Rue Saint-Jacques, Montreal, QC, Canada',
+              style: TextStyle(fontFamily: 'Poppins'),
+            ),
           ),
-          trailing: Icon(Icons.copy, color: secondaryChevronColor),
+          trailing: Padding(
+            padding: EdgeInsets.only(top: height * .01),
+            child: Icon(Icons.copy, color: secondaryChevronColor),
+          ),
         )
       ],
     );

@@ -3,9 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/constants.dart';
 
-class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({Key? key}) : super(key: key);
-
+class MessagePlaceHolderInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = getSize(context).height;

@@ -26,7 +26,7 @@ class CheckinCheckoutContainer extends StatelessWidget {
             thickness: .5,
           ),
           getContainerContent(
-              'Check-in', 'Saturday, July 3', '4:00 PM', height * .12 / 8),
+              'Check-out', 'Friday, July 9', '11:00 AM', height * .12 / 8),
         ],
       ),
     );
@@ -40,7 +40,7 @@ Widget getContainerContent(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title),
+        Text(title, style: TextStyle(fontWeight: FontWeight.w400)),
         SizedBox(height: height),
         Text(date, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
         Text(

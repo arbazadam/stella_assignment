@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/constants.dart';
-import 'package:stella_assignment/presentation/widgets/rounded_container_widget.dart';
+import 'package:stella_assignment/presentation/widgets/parent_container_widget.dart';
 
-class AdvancedSliverAppBar extends StatelessWidget {
+class CustomSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = getSize(context).height;
@@ -16,7 +16,7 @@ class AdvancedSliverAppBar extends StatelessWidget {
             delegate: CustomSliverAppBarDelegate(height * .75),
             pinned: true,
           ),
-          SliverToBoxAdapter(child: RoundedContainer())
+          SliverToBoxAdapter(child: ParentWidget())
         ],
       ),
     );
@@ -109,7 +109,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             child: disappearingWidget(
               shrinkOffset,
               Center(
-                child: getSmallContainer(context),
+                child: _getSmallContainer(context),
               ),
             ),
             decoration: BoxDecoration(
@@ -189,7 +189,7 @@ Widget getRoundedCircularContainer(double height, double width) {
   );
 }
 
-Widget getSmallContainer(BuildContext context) {
+Widget _getSmallContainer(BuildContext context) {
   final width = getSize(context).width;
   final height = getSize(context).height;
   return Container(

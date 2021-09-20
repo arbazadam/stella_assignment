@@ -1,16 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:stella_assignment/data/app_data.dart';
+
 import 'package:stella_assignment/data/constants.dart';
-import 'package:stella_assignment/presentation/screens/reservation_screen.dart';
 
 import 'checkin_checkout_container_widget.dart';
-import 'getting_there.dart';
-import 'listview_widget.dart';
-import 'payment_info.dart';
+import 'getting_there_widget.dart';
+import 'overview_widget.dart';
+import 'payment_info_widget.dart';
 
-class RoundedContainer extends StatelessWidget {
+class ParentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = getSize(context).width;
@@ -37,9 +36,7 @@ class RoundedContainer extends StatelessWidget {
                               fontWeight: FontWeight.w600, fontSize: 18)),
                     ),
                     getSizedBox(screenHeight),
-                    ListViewWidget(
-                      listData: overviewTitle,
-                    )
+                    OverViewWidget()
                   ]),
             ),
             getSizedBox(screenHeight),

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
 
-class ListViewWidget extends StatelessWidget {
-  final listData;
-  const ListViewWidget({Key? key, this.listData}) : super(key: key);
-
+class OverViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -12,8 +10,8 @@ class ListViewWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         itemBuilder: (context, index) => ListTile(
-              title: Text(listData![index],
-                  style: TextStyle(fontWeight: FontWeight.w600)),
+              title: Text(overviewTitle[index],
+                  style: const TextStyle(fontWeight: FontWeight.w600)),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: dividerColor,
@@ -25,6 +23,6 @@ class ListViewWidget extends StatelessWidget {
               indent: 5,
               endIndent: 5,
             ),
-        itemCount: listData!.length);
+        itemCount: overviewTitle.length);
   }
 }
