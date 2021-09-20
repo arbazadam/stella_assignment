@@ -15,7 +15,7 @@ class RoundedContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = getSize(context).width;
     final screenHeight = getSize(context).height;
-    final borderRadius = screenWidth * .05;
+
     return Container(
         color: scaffoldBackgroundColor,
         height: screenHeight,
@@ -36,34 +36,40 @@ class RoundedContainer extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 18)),
                     ),
-                    SizedBox(
-                      height: screenHeight * .05,
-                    ),
+                    getSizedBox(screenHeight),
                     ListViewWidget(
                       listData: overviewTitle,
                     )
                   ]),
             ),
-            SizedBox(
-              height: screenHeight * .02,
-            ),
-            Container(color: Colors.white, child: GetThereWidget()),
-            SizedBox(
-              height: screenHeight * .02,
-            ),
-            Container(color: Colors.white, child: PaymentInfo()),
+            getSizedBox(screenHeight),
+            Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: screenWidth * .05,
+                    right: screenWidth * .05,
+                    top: screenHeight * .05,
+                    bottom: screenHeight * .03,
+                  ),
+                  child: GetThereWidget(),
+                )),
+            getSizedBox(screenHeight),
+            Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * .03,
+                      vertical: screenHeight * .03),
+                  child: PaymentInfo(),
+                )),
           ],
         ));
   }
 }
 
-Widget getSmallContainer(BuildContext context) {
-  final width = getSize(context).width;
-  final height = getSize(context).height;
-  return Container(
-    decoration: BoxDecoration(
-        color: smallDivider, borderRadius: BorderRadius.circular(22)),
-    height: height * .006,
-    width: width * .15,
+Widget getSizedBox(double screenHeight) {
+  return SizedBox(
+    height: screenHeight * .02,
   );
 }

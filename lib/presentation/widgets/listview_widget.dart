@@ -22,6 +22,8 @@ class ListViewWidget extends StatelessWidget {
         separatorBuilder: (context, index) => const Divider(
               color: dividerColor,
               thickness: .5,
+              indent: 5,
+              endIndent: 5,
             ),
         itemCount: listData!.length);
   }

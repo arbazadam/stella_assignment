@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
+import 'package:stella_assignment/presentation/screens/sliver_landing.dart';
 import 'package:stella_assignment/presentation/widgets/button_widget.dart';
-import 'package:stella_assignment/presentation/widgets/rounded_container_widget.dart';
 import 'package:stella_assignment/presentation/widgets/textfield_widget.dart';
 
 class ReservationScreen extends StatelessWidget {

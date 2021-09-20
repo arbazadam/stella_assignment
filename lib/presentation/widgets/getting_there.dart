@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:stella_assignment/data/constants.dart';
@@ -11,48 +11,54 @@ class GetThereWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = getSize(context).height;
     final width = getSize(context).width;
-    return Padding(
-      padding: EdgeInsets.only(
-          top: height * .04,
-          bottom: height * .02,
-          left: height * .02,
-          right: height * .02),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Getting there',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22)),
-          SizedBox(
-            height: height * .02,
-          ),
-          Container(
-            height: height * .32,
-            child: Stack(
-              children: [
-                Center(
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(height * .017)),
-                    child: Image.asset(
-                      'assets/images/ss-map.png',
-                      fit: BoxFit.cover,
-                      width: width * .9,
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Getting there',
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22)),
+        SizedBox(
+          height: height * .02,
+        ),
+        Container(
+          height: height * .34,
+          child: Stack(
+            children: [
+              Center(
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(height * .017)),
+                  child: Image.asset(
+                    'assets/images/ss-map.png',
+                    fit: BoxFit.cover,
+                    width: width * .9,
                   ),
                 ),
-                Positioned.fill(
-                    child: Align(
-                        alignment: Alignment.center, child: getCenterMarker())),
-                Positioned.fill(
-                    bottom: 0,
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SizedBox(
-                          width: width * .47,
-                          height: getSize(context).height * .065,
+              ),
+              Positioned.fill(
+                  child: Align(
+                      alignment: Alignment.center, child: getCenterMarker())),
+              Positioned.fill(
+                  bottom: 0,
+                  child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SizedBox(
+                        width: width * .47,
+                        height: getSize(context).height * .065,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xffeeeeee),
+                                  spreadRadius: 5,
+                                  blurRadius: 15,
+                                  offset: Offset(
+                                      3, 5), // changes position of shadow
+                                ),
+                              ]),
                           child: ElevatedButton(
                               style: ButtonStyle(
-                                elevation: MaterialStateProperty.all(5),
+                                elevation: MaterialStateProperty.all(0),
                                 shape: MaterialStateProperty.all<StadiumBorder>(
                                     const StadiumBorder(side: BorderSide.none)),
                                 backgroundColor:
@@ -67,23 +73,23 @@ class GetThereWidget extends StatelessWidget {
                                 'Get Directions',
                                 style: TextStyle(fontWeight: FontWeight.w600),
                               )),
-                        )))
-              ],
-            ),
+                        ),
+                      )))
+            ],
           ),
-          SizedBox(
-            height: height * .005,
+        ),
+        SizedBox(
+          height: height * .005,
+        ),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text('Address'),
+          subtitle: Text(
+            '244 Rue Saint-Jacques, Montreal, QC, Canada',
           ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text('Address'),
-            subtitle: Container(
-              child: Text('244 Rue Saint-Jacques, Montreal, QC, Canada'),
-            ),
-            trailing: Icon(Icons.copy, color: secondaryChevronColor),
-          )
-        ],
-      ),
+          trailing: Icon(Icons.copy, color: secondaryChevronColor),
+        )
+      ],
     );
   }
 }
@@ -99,6 +105,3 @@ Widget getCenterMarker() {
     ),
   );
 }
-
-//  decoration: BoxDecoration(
-//         image: DecorationImage(image: AssetImage('assets/images/vector.png'))),
