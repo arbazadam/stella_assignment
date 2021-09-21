@@ -11,7 +11,7 @@ class ButtonWidget extends StatelessWidget {
     //  var screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: getSize(context).height * .07,
+      height: getSize(context).height * .075,
       width: double.infinity,
       child: ElevatedButton(
           style: ButtonStyle(
@@ -22,7 +22,7 @@ class ButtonWidget extends StatelessWidget {
           ),
           child: Text(
             buttonCaption,
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           onPressed: () {}),
     );

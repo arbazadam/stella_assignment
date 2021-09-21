@@ -29,14 +29,8 @@ class ParentWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CheckinCheckoutContainer(),
-                    SizedBox(height: screenHeight * .05),
-                    Padding(
-                      padding: EdgeInsets.only(left: screenHeight * .02),
-                      child: Text('Overiew',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 18)),
-                    ),
-                    getSizedBox(screenHeight),
+                    SizedBox(height: screenHeight * .06),
+                    // getSizedBox(screenHeight),
                     OverViewWidget()
                   ]),
             ),

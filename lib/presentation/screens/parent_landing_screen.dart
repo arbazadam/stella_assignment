@@ -109,7 +109,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             child: disappearingWidget(
               shrinkOffset,
               Center(
-                child: _getSmallContainer(context),
+                child: getSmallContainer(context),
               ),
             ),
             decoration: BoxDecoration(
@@ -189,13 +189,13 @@ Widget getRoundedCircularContainer(double height, double width) {
   );
 }
 
-Widget _getSmallContainer(BuildContext context) {
+Widget getSmallContainer(BuildContext context) {
   final width = getSize(context).width;
   final height = getSize(context).height;
   return Container(
     decoration: BoxDecoration(
         color: smallDivider, borderRadius: BorderRadius.circular(22)),
     height: height * .004,
-    width: width * .17,
+    width: width * .13,
   );
 }

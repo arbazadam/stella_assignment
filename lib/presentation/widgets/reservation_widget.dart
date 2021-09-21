@@ -2,8 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:stella_assignment/data/app_data.dart';
 import 'package:stella_assignment/data/constants.dart';
+import 'package:stella_assignment/presentation/screens/parent_landing_screen.dart';
 import 'package:stella_assignment/presentation/widgets/button_widget.dart';
 import 'package:stella_assignment/presentation/widgets/message_placeholder_input_widget.dart';
 
@@ -20,16 +22,17 @@ class ReservationWidget extends StatelessWidget {
       children: [
         getHeaderSection(height),
         SizedBox(
-          height: height * .04,
+          height: height * .03,
         ),
         Divider(
           color: dividerColor,
           thickness: .5,
-          indent: width * .04,
-          endIndent: width * .04,
+          indent: width * .03,
+          endIndent: width * .03,
         ),
         Container(
           child: ListView.separated(
+            padding: EdgeInsets.zero,
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) => getTile(
@@ -40,8 +43,8 @@ class ReservationWidget extends StatelessWidget {
             separatorBuilder: (context, index) => Divider(
               color: dividerColor,
               thickness: .5,
-              indent: width * .04,
-              endIndent: width * .04,
+              indent: width * .03,
+              endIndent: width * .03,
             ),
             itemCount: reservationRules.length,
           ),
@@ -52,36 +55,41 @@ class ReservationWidget extends StatelessWidget {
 }
 
 Widget getTile(String title, String subtitle, iconSize, BuildContext context) {
-  return ListTile(
-    onTap: title == "Special request"
-        ? () {
-            showModalBottomSheet(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                context: context,
-                builder: (modalContext) => getBottomSheetContent(modalContext));
-          }
-        : null,
-    title: Text(
-      title,
-      style: TextStyle(fontWeight: FontWeight.w700),
-    ),
-    subtitle: Padding(
-      padding: const EdgeInsets.only(top: 6.0),
-      child: Text(
-        subtitle,
-        style: TextStyle(
-            color: title == 'Confirmation code' ? Color(0xff0f0f0f) : null,
-            fontWeight: title == 'Confirmation code' ? FontWeight.w400 : null),
+  return Padding(
+    padding: EdgeInsets.symmetric(vertical: 8.0),
+    child: ListTile(
+      onTap: title == "Special request"
+          ? () {
+              showModalBottomSheet(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  context: context,
+                  builder: (modalContext) =>
+                      getBottomSheetContent(modalContext));
+            }
+          : null,
+      title: Text(
+        title,
+        style: TextStyle(fontWeight: FontWeight.w700),
       ),
-    ),
-    trailing: Padding(
-      padding: const EdgeInsets.only(top: 6.0),
-      child: Icon(
-          title == 'Confirmation code' ? Icons.copy : Icons.chevron_right,
-          color: secondaryChevronColor,
-          size: 30),
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 6.0),
+        child: Text(
+          subtitle,
+          style: TextStyle(
+              color: title == 'Confirmation code' ? Color(0xff0f0f0f) : null,
+              fontWeight:
+                  title == 'Confirmation code' ? FontWeight.w400 : null),
+        ),
+      ),
+      trailing: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: Icon(
+            title == 'Confirmation code' ? Icons.copy : Icons.chevron_right,
+            color: secondaryChevronColor,
+            size: 30),
+      ),
     ),
   );
 }
@@ -94,7 +102,7 @@ Widget getHeaderSection(double height) {
       children: [
         const Text(
           'Reservation Details',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
         ),
         SizedBox(height: height * .05),
         Text(
@@ -102,7 +110,7 @@ Widget getHeaderSection(double height) {
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 7.0),
+          padding: EdgeInsets.only(top: height * .01),
           child: Row(
             children: [
               Text('4 adults, 2 infants'),
@@ -130,9 +138,9 @@ Widget getBottomSheetContent(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Center(child: getSmallContainer(context)),
+          Center(child: getSmallContainer(context)),
           SizedBox(
-            height: height * .02,
+            height: height * .03,
           ),
           Text(
             'Special Request',

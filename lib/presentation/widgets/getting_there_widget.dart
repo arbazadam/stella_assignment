@@ -88,7 +88,8 @@ class GetThereWidget extends StatelessWidget {
             padding: EdgeInsets.only(top: height * .005),
             child: Text(
               '244 Rue Saint-Jacques, Montreal, QC, Canada',
-              style: TextStyle(fontFamily: 'Poppins'),
+              style:
+                  TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400),
             ),
           ),
           trailing: Padding(

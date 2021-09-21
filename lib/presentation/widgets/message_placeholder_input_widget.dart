@@ -10,8 +10,11 @@ class MessagePlaceHolderInput extends StatelessWidget {
     return TextField(
       maxLines: 6,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(
+            vertical: height * .017, horizontal: height * .02),
         hintText: 'Message Placeholder',
-        hintStyle: TextStyle(fontFamily: 'Poppins'),
+        hintStyle:
+            TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400),
         border: OutlineInputBorder(
           borderSide:
               const BorderSide(color: chevronRightIconColor, width: 1.0),
